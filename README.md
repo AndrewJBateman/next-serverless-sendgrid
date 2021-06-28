@@ -1,34 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :zap: Next Serverless Sendgrid
 
-## Getting Started
+* A simple Next.js React app to send emails from a web page contact form using [Sendgrid](https://sendgrid.com/) and Node.js
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-First, run the development server:
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/next-serverless-sendgrid?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/next-serverless-sendgrid?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/next-serverless-sendgrid?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/next-serverless-sendgrid?style=plastic)
 
-```bash
-npm run dev
-# or
-yarn dev
+## :page_facing_up: Table of contents
+
+* [:zap: Next API Data](#zap-next-api-data)
+  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:books: General Info](#books-general-info)
+  * [:camera: Screenshots](#camera-screenshots)
+  * [:signal_strength: Technologies](#signal_strength-technologies)
+  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:computer: Code Examples](#computer-code-examples)
+  * [:clipboard: Status & To-Do List](#clipboard-status--to-do-list)
+  * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
+  * [:envelope: Contact](#envelope-contact)
+
+## :books: General Info
+
+* Uses a html/css contact form to create HTML5 FormData Javascript object to an object of JSON strings that is sent to a designated email address using Sendgrid.
+* Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page
+
+## :camera: Screenshots
+
+![Example screenshot](./img/send.png).
+
+## :signal_strength: Technologies
+
+* [Node.js v14](https://nodejs.org/) javascript runtime using the [Chrome V8 engine](https://v8.dev/).
+* [React v17](https://reactjs.org/) Javascript library.
+* [Next v11](https://nextjs.org/) minimalist framework for rendering react apps on the server.
+* [Sendgrid Web API v3 Node.js Mail Service v7](https://github.com/sendgrid/sendgrid-nodejs/tree/main/packages/mail)
+
+## :floppy_disk: Setup
+
+* Register with [Sendgrid](https://sendgrid.com/) and if you have a domain, configure DNS CNAME records as per tutorial - see [Inspiration below](## :clap: Inspiration)
+* `npm run dev` runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* `npm run build` builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+
+## :computer: Code Examples
+
+* `index.js` function to convert form data to formData object
+
+```javascript
+  async function handleOnSubmit(e) {
+    e.preventDefault();
+    const formData = {};
+    Array.from(e.currentTarget.elements).forEach(field => {
+      if (!field.name) return;
+      formData[field.name] = field.value;
+    });
+    fetch('/api/mail', {
+      method: 'post',
+      body: JSON.stringify(formData)
+    })
+    console.log('formData: ', formData);
+  }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :clipboard: Status & To-Do List
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+* Status: Working
+* To-Do: Add acknowledgement after email sent
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## :clap: Inspiration
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* [Send Emails with SendGrid & Next.js Serverless Functions - Contact Form Tutorial](https://www.youtube.com/watch?v=QrVYLLpoyMw&t=51s)
+* [Go Make Things: Serializing form data with the vanilla JS FormData() object](https://gomakethings.com/serializing-form-data-with-the-vanilla-js-formdata-object/)
 
-## Learn More
+## :file_folder: License
 
-To learn more about Next.js, take a look at the following resources:
+* N/A
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## :envelope: Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
