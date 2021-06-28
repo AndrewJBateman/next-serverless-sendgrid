@@ -40,13 +40,14 @@
 
 ## :floppy_disk: Setup
 
-* Register with [Sendgrid](https://sendgrid.com/) and if you have a domain, configure DNS CNAME records as per tutorial - see [Inspiration below](## :clap: Inspiration)
+* Register with [Sendgrid](https://sendgrid.com/)
+* If you have a domain, configure DNS CNAME records as per tutorial - see [Inspiration below](## :clap: Inspiration)
 * `npm run dev` runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 * `npm run build` builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
 ## :computer: Code Examples
 
-* `index.js` function to convert form data to formData object
+* `index.js` function to convert HTML5 form data to a JSON object
 
 ```javascript
   async function handleOnSubmit(e) {
@@ -71,7 +72,7 @@
 
 ## :clap: Inspiration
 
-* [Send Emails with SendGrid & Next.js Serverless Functions - Contact Form Tutorial](https://www.youtube.com/watch?v=QrVYLLpoyMw&t=51s)
+* [Colby Fayock: Send Emails with SendGrid & Next.js Serverless Functions - Contact Form Tutorial](https://www.youtube.com/watch?v=QrVYLLpoyMw&t=51s)
 * [Go Make Things: Serializing form data with the vanilla JS FormData() object](https://gomakethings.com/serializing-form-data-with-the-vanilla-js-formdata-object/)
 
 ## :file_folder: License
